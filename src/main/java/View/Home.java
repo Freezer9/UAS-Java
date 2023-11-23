@@ -3,17 +3,16 @@ package View;
 import Class.*;
 
 public class Home extends javax.swing.JFrame {
-    private RootController toko;
+    private FoodCommerce toko;
     private User user;
     
     public Home() {
         initComponents();
     }
 
-    public void setUser(User user, RootController toko) {
+    public void setUser(User user, FoodCommerce toko) {
         this.toko = toko;
         this.user = user;
-        
         LabelName.setText("Halo, " + this.user.getUsername());
     }
     
@@ -81,7 +80,6 @@ public class Home extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(120, 120));
 
         ButtonOutlet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Desain tanpa judul (1).png"))); // NOI18N
-        ButtonOutlet.setEnabled(false);
         ButtonOutlet.setPreferredSize(new java.awt.Dimension(120, 120));
         ButtonOutlet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +208,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonExitActionPerformed
 
     private void ButtonOutletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOutletActionPerformed
-//        Otw nanti aja
+        FrameOutlet outletFrame = new FrameOutlet();
+        outletFrame.setVisible(true);
+        outletFrame.setToko(toko);
     }//GEN-LAST:event_ButtonOutletActionPerformed
 
     private void ButtonProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfileActionPerformed
@@ -221,7 +221,7 @@ public class Home extends javax.swing.JFrame {
 
     private void ButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuActionPerformed
         FrameMenu menuFrame = new FrameMenu();
-        menuFrame.setVisible(true); 
+        menuFrame.setVisible(true);
     }//GEN-LAST:event_ButtonMenuActionPerformed
 
     public static void main(String args[]) {

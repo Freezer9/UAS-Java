@@ -1,14 +1,14 @@
 package Class;
 
+import Loader.*;
 import java.util.ArrayList;
 
-public class RootController {
-    private final ArrayList<User> userList;
+public class FoodCommerce {
+    private ArrayList<User> userList;
     
-    public RootController() {
+    public FoodCommerce() {
         this.userList = new ArrayList<>();
-        
-        this.userList.add(new User("hafid", "123", "pid"));
+        this.userList.add(new User("hafid", "12345678", "hafid@gmail.com"));
     }
     
     public void tambahUser(String username, String password, String email) {

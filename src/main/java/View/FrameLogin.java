@@ -6,14 +6,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 public class FrameLogin extends javax.swing.JFrame {
-    private RootController toko;
-
+    private FoodCommerce toko;
+    
     public FrameLogin() {
-        this.toko = new RootController();
+        this.toko = new FoodCommerce();
         initComponents();
     }
 
-    public void setToko(RootController toko) {
+    public void setToko(FoodCommerce toko) {
         this.toko = toko;
     }
     

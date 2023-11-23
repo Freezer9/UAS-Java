@@ -4,13 +4,13 @@ import Class.*;
 import javax.swing.JOptionPane;
 
 public class FrameRegister extends javax.swing.JFrame {
-    private RootController toko;
+    private FoodCommerce toko;
 
     public FrameRegister() {
         initComponents();
     }
 
-    public void setToko(RootController toko) {
+    public void setToko(FoodCommerce toko) {
         this.toko = toko;
     }
     

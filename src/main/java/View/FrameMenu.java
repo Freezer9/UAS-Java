@@ -1,29 +1,32 @@
 package View;
 
-import Class.*;
-import Components.*;
+import Class.Outlet;
 import Loader.*;
-import javax.swing.BoxLayout;
+import javax.swing.*;
 
 public class FrameMenu extends javax.swing.JFrame {
-    private Menu menus;
+    private Outlet outlet;
     private DataLoader dataLoader = new DataLoader();
     private int menuAmount = dataLoader.loadMenuItems().size();
-    private MenuItem[] listMenu = new MenuItem[menuAmount];
+    private ListMenu[] listMenu = new ListMenu[menuAmount];
     
     public FrameMenu() {
         initComponents();
         jScrollPane2.setVisible(true);
-        contentContainer.setLayout(new BoxLayout(contentContainer, BoxLayout.Y_AXIS));
-        this.showMenu();
+        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
+        showMenu();
+    }
+    
+    public void setMenu(Outlet outlet) {
+        this.outlet = outlet;
+        this.outlet.setMenu();
     }
     
     private void showMenu(){
-        contentContainer.removeAll();
         for(int i = 0; i < menuAmount; i++){
-            listMenu[i] = new MenuItem();
+            listMenu[i] = new ListMenu();
             listMenu[i].setMenuDisplay(i);
-            contentContainer.add(listMenu[i]);
+            jPanel1.add(listMenu[i]);
             listMenu[i].setVisible(true);
         }
     }
@@ -34,7 +37,7 @@ public class FrameMenu extends javax.swing.JFrame {
 
         ButtonBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        contentContainer = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,30 +48,39 @@ public class FrameMenu extends javax.swing.JFrame {
             }
         });
 
-        contentContainer.setLayout(new javax.swing.BoxLayout(contentContainer, javax.swing.BoxLayout.LINE_AXIS));
-        jScrollPane2.setViewportView(contentContainer);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 676, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonBack)
                 .addGap(23, 23, 23))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(ButtonBack)
                 .addGap(15, 15, 15))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed
@@ -113,7 +125,7 @@ public class FrameMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBack;
-    private javax.swing.JPanel contentContainer;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,15 +4,24 @@
  */
 package ViewPembayaran;
 
+import Class.Menu;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo
  */
 public class Keranjang extends javax.swing.JFrame {
-
+    ArrayList<Menu> menuAdded = new ArrayList<>();
+    private DefaultTableModel tableModel;
     
     public Keranjang() {
         initComponents();
+        tableModel = new DefaultTableModel();
+        jTable1 = new JTable(tableModel);
+        showInTable();
     }
 
     /**
@@ -39,15 +48,20 @@ public class Keranjang extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Nama Menu", "Variant", "Quantity", "Harga ", "Total"
+                "Nama Menu", "Quantity", "Harga "
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Pembayaran ");
@@ -105,6 +119,17 @@ public class Keranjang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void storeAddedMenu(Menu menu){
+        menuAdded.add(menu);
+    }
+    
+    public void showInTable(){
+        for(Menu menu : menuAdded){
+            Object[] rowData = {menu.getMenuName(), 1, menu.getPrice()};
+            tableModel.addRow(rowData);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
