@@ -1,13 +1,19 @@
 package View;
 
 import Class.*;
+import ViewPembayaran.*;
 
 public class Home extends javax.swing.JFrame {
     private FoodCommerce toko;
+    private Cart cart;
     private User user;
     
     public Home() {
         initComponents();
+    }
+    
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public void setUser(User user, FoodCommerce toko) {
@@ -15,6 +21,8 @@ public class Home extends javax.swing.JFrame {
         this.user = user;
         LabelName.setText("Halo, " + this.user.getUsername());
     }
+    
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,6 +32,7 @@ public class Home extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         LabelName = new javax.swing.JLabel();
         ButtonProfile = new javax.swing.JButton();
+        ButtonCart = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         ButtonOutlet = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -53,6 +62,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        ButtonCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cart.png"))); // NOI18N
+        ButtonCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCartActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -62,18 +78,22 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(ButtonProfile)
                 .addGap(18, 18, 18)
                 .addComponent(LabelName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonCart)
+                .addGap(32, 32, 32))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelName)
-                .addGap(34, 34, 34))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(ButtonProfile)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonCart)
+                    .addComponent(LabelName))
+                .addGap(11, 11, 11))
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/pick up.png"))); // NOI18N
@@ -220,10 +240,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonProfileActionPerformed
 
     private void ButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuActionPerformed
-        FrameMenu menuFrame = new FrameMenu();
-        menuFrame.setUser(user);
+        FrameMenu menuFrame = new FrameMenu(this.cart);
+        menuFrame.setHome(this);
         menuFrame.setVisible(true);
     }//GEN-LAST:event_ButtonMenuActionPerformed
+
+    private void ButtonCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCartActionPerformed
+        FrameCart cartFrame = new FrameCart(this.cart);
+        cartFrame.setVisible(true);
+    }//GEN-LAST:event_ButtonCartActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -234,6 +259,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonCart;
     private javax.swing.JButton ButtonExit;
     private javax.swing.JButton ButtonMenu;
     private javax.swing.JButton ButtonOutlet;

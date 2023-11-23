@@ -1,30 +1,32 @@
 package View;
 
 import Component.ListMenu;
-import Class.*;
 import Loader.*;
 import javax.swing.*;
+import Class.*;
 
 public class FrameMenu extends javax.swing.JFrame {
-    private User user;
+    private Cart cart;
+    private Home home;
     private DataLoader dataLoader = new DataLoader();
     private int menuAmount = dataLoader.loadMenuItems().size();
     private ListMenu[] listMenu = new ListMenu[menuAmount];
     
-    public FrameMenu() {
+    public FrameMenu(Cart cart) {
+        this.cart = cart;
         initComponents();
         jScrollPane2.setVisible(true);
         jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
         showMenu();
     }
     
-    public void setUser(User user) {
-        this.user = user;
+    public void setHome(Home home) {
+        this.home = home;
     }
     
     private void showMenu(){
         for(int i = 0; i < menuAmount; i++){
-            listMenu[i] = new ListMenu();
+            listMenu[i] = new ListMenu(this.cart);
             listMenu[i].setMenuDisplay(i);
             jPanel1.add(listMenu[i]);
             listMenu[i].setVisible(true);
@@ -88,41 +90,6 @@ public class FrameMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ButtonBackActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameMenu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBack;

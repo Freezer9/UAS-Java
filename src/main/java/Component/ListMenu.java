@@ -7,7 +7,7 @@ import Class.*;
 import Loader.*;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
-
+    
 /**
  *
  * @author raffi1
@@ -17,10 +17,11 @@ public class ListMenu extends javax.swing.JPanel {
     private DataLoader dataLoader = new DataLoader();
     private ArrayList<Menu> menuList;
     
-    public ListMenu() {
+    public ListMenu(Cart cart) {
+        this.cart = cart;
         initComponents();
     }
-
+    
     public void setMenu() {
         this.menuList = dataLoader.loadMenuItems();
     }
@@ -31,6 +32,7 @@ public class ListMenu extends javax.swing.JPanel {
         nameLabel.setText(this.menuList.get(i).getMenuName());
         descLabel.setText(this.menuList.get(i).getDescription());
         priceLabel.setText("Rp." + Integer.toString(this.menuList.get(i).getPrice()));
+        txtId.setText(Integer.toString(i));
         imageLabel.setIcon(new ImageIcon(this.menuList.get(i).getImage()));
     }
     
@@ -44,6 +46,9 @@ public class ListMenu extends javax.swing.JPanel {
         descLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         btnAddToCart = new javax.swing.JButton();
+        txtId = new javax.swing.JLabel();
+        testId = new javax.swing.JLabel();
+        testisi = new javax.swing.JLabel();
 
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu/Brownies.png"))); // NOI18N
 
@@ -59,6 +64,12 @@ public class ListMenu extends javax.swing.JPanel {
                 btnAddToCartActionPerformed(evt);
             }
         });
+
+        txtId.setText("jLabel3");
+
+        testId.setText("jLabel3");
+
+        testisi.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,6 +87,12 @@ public class ListMenu extends javax.swing.JPanel {
                         .addContainerGap(441, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(descLabel)
+                        .addGap(42, 42, 42)
+                        .addComponent(txtId)
+                        .addGap(47, 47, 47)
+                        .addComponent(testId)
+                        .addGap(37, 37, 37)
+                        .addComponent(testisi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAddToCart)
                         .addGap(58, 58, 58))))
@@ -93,7 +110,10 @@ public class ListMenu extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(descLabel)
-                            .addComponent(btnAddToCart))
+                            .addComponent(btnAddToCart)
+                            .addComponent(txtId)
+                            .addComponent(testId)
+                            .addComponent(testisi))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceLabel)))
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -102,7 +122,12 @@ public class ListMenu extends javax.swing.JPanel {
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
 //         TODO add your handling code here:
-        cart.storeAddedMenu(dataLoader.loadMenuItems().get(selectedIndex));
+        this.cart.addMenu(this.menuList.get(Integer.parseInt(txtId.getText())));
+        testId.setText(txtId.getText());
+        
+        if(!menuList.isEmpty()) {
+            testisi.setText(this.menuList.get(Integer.parseInt(txtId.getText())).getMenuName());
+        }
     }//GEN-LAST:event_btnAddToCartActionPerformed
 
 
@@ -112,5 +137,8 @@ public class ListMenu extends javax.swing.JPanel {
     private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel testId;
+    private javax.swing.JLabel testisi;
+    private javax.swing.JLabel txtId;
     // End of variables declaration//GEN-END:variables
 }

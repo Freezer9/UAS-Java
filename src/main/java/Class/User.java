@@ -1,6 +1,6 @@
 package Class;
 
-import ViewPembayaran.FrameKeranjang;
+import ViewPembayaran.FrameCart;
 
 public class User{
     private int id;
@@ -9,7 +9,6 @@ public class User{
     private String email;
     private String nama;
     private String address;
-    private FrameKeranjang keranjang = new FrameKeranjang();
     
     public User(String username, String password, String email) {
         this.username = username;

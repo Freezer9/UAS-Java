@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class FoodCommerce {
     private ArrayList<User> userList;
+    private Cart cart;
     
     public FoodCommerce() {
         this.userList = new ArrayList<>();
+        
         this.userList.add(new User("hafid", "123", "pid"));
     }
     

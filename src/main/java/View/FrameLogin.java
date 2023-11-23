@@ -215,6 +215,7 @@ public class FrameLogin extends javax.swing.JFrame {
             });  
            
             home.setUser(user, toko);
+            home.setCart(new Cart());
             home.setVisible(true);
             this.setVisible(false);
         }

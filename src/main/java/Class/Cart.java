@@ -11,8 +11,12 @@ public class Cart {
         this.cartList.add(new Menu("Kontol 1", 12000, "Description 1", "12"));
     }
     
-    public void getMenu(int id) {
-        this.cartList.get(id);
+    public Menu getMenu(int id) {
+        return this.cartList.get(id);
+    }
+    
+    public int getSize() {
+        return this.cartList.size();
     }
     
     public void addMenu(Menu menu) {
