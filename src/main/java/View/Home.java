@@ -221,6 +221,7 @@ public class Home extends javax.swing.JFrame {
 
     private void ButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuActionPerformed
         FrameMenu menuFrame = new FrameMenu();
+        menuFrame.setUser(user);
         menuFrame.setVisible(true);
     }//GEN-LAST:event_ButtonMenuActionPerformed
 

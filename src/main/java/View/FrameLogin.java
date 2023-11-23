@@ -27,6 +27,7 @@ public class FrameLogin extends javax.swing.JFrame {
         for (int i = 0; i < this.toko.getJumlahUser(); i++) {
             if(email.equals(this.toko.getUser(i).getEmail()) && password.equals(this.toko.getUser(i).getPassword())) {
                 JOptionPane.showMessageDialog(this, "Login berhasil!");
+                toko.getUser(i).setId(i);
                 return toko.getUser(i);
             }
         }

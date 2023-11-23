@@ -1,11 +1,12 @@
 package View;
 
-import Class.Outlet;
+import Component.ListMenu;
+import Class.*;
 import Loader.*;
 import javax.swing.*;
 
 public class FrameMenu extends javax.swing.JFrame {
-    private Outlet outlet;
+    private User user;
     private DataLoader dataLoader = new DataLoader();
     private int menuAmount = dataLoader.loadMenuItems().size();
     private ListMenu[] listMenu = new ListMenu[menuAmount];
@@ -17,9 +18,8 @@ public class FrameMenu extends javax.swing.JFrame {
         showMenu();
     }
     
-    public void setMenu(Outlet outlet) {
-        this.outlet = outlet;
-        this.outlet.setMenu();
+    public void setUser(User user) {
+        this.user = user;
     }
     
     private void showMenu(){
@@ -69,18 +69,19 @@ public class FrameMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonBack)
                 .addGap(23, 23, 23))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonBack)
                 .addGap(15, 15, 15))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed

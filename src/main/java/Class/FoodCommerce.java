@@ -1,6 +1,5 @@
 package Class;
 
-import Loader.*;
 import java.util.ArrayList;
 
 public class FoodCommerce {
@@ -8,7 +7,7 @@ public class FoodCommerce {
     
     public FoodCommerce() {
         this.userList = new ArrayList<>();
-        this.userList.add(new User("hafid", "12345678", "hafid@gmail.com"));
+        this.userList.add(new User("hafid", "123", "pid"));
     }
     
     public void tambahUser(String username, String password, String email) {

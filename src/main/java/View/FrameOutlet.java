@@ -11,14 +11,13 @@ public class FrameOutlet extends javax.swing.JFrame {
     
     public void setToko(FoodCommerce toko) {
         this.toko = toko;
-        displayInfo();
     }
 
-    public void displayInfo() {
-        OutletName.setText(this.toko.getOutlet().getOutletName());
-        OutletAddress.setText(this.toko.getOutlet().getAddress());
-        OutletPhone.setText(this.toko.getOutlet().getOutletPhone());   
-    }
+//    public void displayInfo() {
+//        OutletName.setText(this.toko.getOutlet().getOutletName());
+//        OutletAddress.setText(this.toko.getOutlet().getAddress());
+//        OutletPhone.setText(this.toko.getOutlet().getOutletPhone());   
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -1,12 +1,15 @@
 package Class;
 
-import ViewPembayaran.Keranjang;
+import ViewPembayaran.FrameKeranjang;
 
 public class User{
+    private int id;
     private String username;
     private String password;
     private String email;
-    private Keranjang keranjang = new Keranjang();
+    private String nama;
+    private String address;
+    private FrameKeranjang keranjang = new FrameKeranjang();
     
     public User(String username, String password, String email) {
         this.username = username;
@@ -26,6 +29,18 @@ public class User{
         this.email= email;
     }
     
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
+    public void setAlamat(String alamat) {
+        this.address = alamat;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getUsername() {
         return this.username;
     }
@@ -36,5 +51,17 @@ public class User{
     
     public String getPassword() {
         return this.password;
+    }
+
+    public String getNama() {
+        return this.nama;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+    
+    public int getId() {
+        return this.id;
     }
 }

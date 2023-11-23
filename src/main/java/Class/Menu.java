@@ -9,20 +9,18 @@ package Class;
  * @author Freeze
  */
 public class Menu {
+    private int menu_id;
     private String menuName;
-    private int price;
     private String description;
+    private int price;
     private String image;
+    private int userId;
     
     public Menu(String menuName, int price, String description, String image) {
         this.menuName = menuName;
         this.price = price;
         this.description = description;
         this.image = image;
-    }
-    
-    public String displayMenu() {
-        return this.menuName + " " + this.price + " " + this.description + " " + this.image;
     }
 
     public String getMenuName() {
@@ -57,5 +55,19 @@ public class Menu {
         this.image = image;
     }
     
+    public int getUserId() {
+        return this.userId;
+    }
     
+    public void setUserId(int id) {
+        this.userId = id;
+    }
+    
+    public void setMenuId(int id) {
+        this.menu_id = id;
+    }
+    
+    public int getMenuId() {
+        return this.menu_id;
+    }
 }
