@@ -4,7 +4,6 @@
  */
 package View;
 
-import Class.RootController;
 import Class.User;
 import javax.swing.JOptionPane;
 
@@ -13,9 +12,8 @@ import javax.swing.JOptionPane;
  * @author yutik
  */
 public class FrameProfile extends javax.swing.JFrame {
-    private RootController toko;
     private User user;
-
+    
     public FrameProfile() {
         initComponents();
     }
@@ -26,14 +24,14 @@ public class FrameProfile extends javax.swing.JFrame {
     }
     
     public void setProfile() {
-        TextUsername.setText(this.user.getUsername());
-        TextEmail.setText(this.user.getEmail());
-        TextNama.setText(this.user.getNama());
-        TextAlamat.setText(this.user.getAlamat());
+        txtUsername.setText(this.user.getUsername());
+        txtEmail.setText(this.user.getEmail());
+        txtNama.setText(this.user.getNama());
+        txtAlamat.setText(this.user.getAddress());
     }
     
     public void updateProfile() {
-        if(!TextNama.getText().isEmpty() || !TextAlamat.getText().isEmpty()) {
+        if(!txtNama.getText().isEmpty() || !txtAlamat.getText().isEmpty()) {
             btnUpdate.setEnabled(true);
         } else {
             btnUpdate.setEnabled(false);
@@ -47,17 +45,16 @@ public class FrameProfile extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
         jPanel1 = new javax.swing.JPanel();
-        TextNama = new javax.swing.JTextField();
-        TextEmail = new javax.swing.JTextField();
+        txtNama = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        TextUsername = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        TextAlamat = new javax.swing.JTextField();
+        txtAlamat = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         ButtonBack = new javax.swing.JButton();
-        LabelTest = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -71,13 +68,13 @@ public class FrameProfile extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(236, 227, 206));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 400));
 
-        TextNama.addActionListener(new java.awt.event.ActionListener() {
+        txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNamaActionPerformed(evt);
+                txtNamaActionPerformed(evt);
             }
         });
 
-        TextEmail.setEditable(false);
+        txtEmail.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Nama");
@@ -85,17 +82,16 @@ public class FrameProfile extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Email");
 
-        TextUsername.setEditable(false);
-        TextUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setEnabled(false);
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextUsernameActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
 
         btnUpdate.setBackground(new java.awt.Color(58, 77, 57));
         btnUpdate.setForeground(new java.awt.Color(236, 227, 206));
         btnUpdate.setText("Update");
-        btnUpdate.setEnabled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -105,9 +101,9 @@ public class FrameProfile extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Alamat");
 
-        TextAlamat.addActionListener(new java.awt.event.ActionListener() {
+        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextAlamatActionPerformed(evt);
+                txtAlamatActionPerformed(evt);
             }
         });
 
@@ -120,9 +116,6 @@ public class FrameProfile extends javax.swing.JFrame {
                 ButtonBackActionPerformed(evt);
             }
         });
-
-        LabelTest.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LabelTest.setText("Test");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,56 +130,49 @@ public class FrameProfile extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextNama, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel5))
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(285, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelTest)
-                .addGap(125, 125, 125)
                 .addComponent(btnUpdate)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(ButtonBack)
-                .addGap(146, 146, 146))
+                .addGap(137, 137, 137))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(TextAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                        .addGap(0, 77, Short.MAX_VALUE))
+                    .addComponent(txtAlamat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnUpdate)
-                            .addComponent(ButtonBack)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(LabelTest)))
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(ButtonBack))
                 .addGap(35, 35, 35))
         );
 
@@ -245,33 +231,30 @@ public class FrameProfile extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsernameActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextUsernameActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void TextAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextAlamatActionPerformed
+    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
         updateProfile();
-    }//GEN-LAST:event_TextAlamatActionPerformed
+    }//GEN-LAST:event_txtAlamatActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        this.user.setNama(txtNama.getText());
+        this.user.setAlamat(txtAlamat.getText());
+        
+        JOptionPane.showMessageDialog(this, "Update Profil Berhasil!");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+        updateProfile();
+
+    }//GEN-LAST:event_txtNamaActionPerformed
 
     private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed
         this.dispose();
     }//GEN-LAST:event_ButtonBackActionPerformed
 
-    private void TextNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNamaActionPerformed
-        updateProfile();
-    }//GEN-LAST:event_TextNamaActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        this.user.setNama(TextNama.getText());
-        this.user.setAddress(TextAlamat.getText());
-
-        JOptionPane.showMessageDialog(this, "Update Profile Berhasil!");
-        LabelTest.setText(TextNama.getText());
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -307,11 +290,6 @@ public class FrameProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBack;
-    private javax.swing.JLabel LabelTest;
-    private javax.swing.JTextField TextAlamat;
-    private javax.swing.JTextField TextEmail;
-    private javax.swing.JTextField TextNama;
-    private javax.swing.JTextField TextUsername;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -323,5 +301,9 @@ public class FrameProfile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtAlamat;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

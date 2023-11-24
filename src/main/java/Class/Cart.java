@@ -1,13 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Class;
 
-/**
- *
- * @author Freeze
- */
+import java.util.ArrayList;
+
 public class Cart {
+    private ArrayList<Menu> cartList;
     
+    public Cart() {
+        this.cartList = new ArrayList<>();
+        
+        this.cartList.add(new Menu("Kontol 1", 12000, "Description 1", "12"));
+    }
+    
+    public Menu getMenu(int id) {
+        return this.cartList.get(id);
+    }
+    
+    public int getSize() {
+        return this.cartList.size();
+    }
+    
+    public void addMenu(Menu menu) {
+        this.cartList.add(menu);
+    }
 }

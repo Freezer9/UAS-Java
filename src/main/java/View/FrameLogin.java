@@ -6,14 +6,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 public class FrameLogin extends javax.swing.JFrame {
-    private RootController toko;
-
+    private FoodCommerce toko;
+    
     public FrameLogin() {
-        this.toko = new RootController();
+        this.toko = new FoodCommerce();
         initComponents();
     }
 
-    public void setToko(RootController toko) {
+    public void setToko(FoodCommerce toko) {
         this.toko = toko;
     }
     
@@ -27,6 +27,7 @@ public class FrameLogin extends javax.swing.JFrame {
         for (int i = 0; i < this.toko.getJumlahUser(); i++) {
             if(email.equals(this.toko.getUser(i).getEmail()) && password.equals(this.toko.getUser(i).getPassword())) {
                 JOptionPane.showMessageDialog(this, "Login berhasil!");
+                toko.getUser(i).setId(i);
                 return toko.getUser(i);
             }
         }
@@ -214,6 +215,7 @@ public class FrameLogin extends javax.swing.JFrame {
             });  
            
             home.setUser(user, toko);
+            home.setCart(new Cart());
             home.setVisible(true);
             this.setVisible(false);
         }
