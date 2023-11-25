@@ -181,7 +181,7 @@ public class Promo extends javax.swing.JFrame {
                 case "Promo 3" -> {
                         this.setFoto("/Resources/gambarpromo/Promo3.png");
                         this.setNamaPromo("3 Donat & Coffee");
-                        this.setHarga("R85000");
+                        this.setHarga("85000");
                 }
                 case "Promo 4" -> {
                         this.setFoto("/Resources/gambarpromo/Promo4.png");
