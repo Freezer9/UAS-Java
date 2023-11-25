@@ -76,7 +76,7 @@ public class FrameProfile extends javax.swing.JFrame {
         });
 
         btnUpdate.setBackground(new java.awt.Color(58, 77, 57));
-        btnUpdate.setForeground(new java.awt.Color(236, 227, 206));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,9 @@ public class FrameProfile extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Username");
 
-        ButtonBack.setText("BACK");
+        ButtonBack.setBackground(new java.awt.Color(58, 77, 57));
+        ButtonBack.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonBack.setText("Back");
         ButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonBackActionPerformed(evt);
@@ -174,7 +176,7 @@ public class FrameProfile extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
