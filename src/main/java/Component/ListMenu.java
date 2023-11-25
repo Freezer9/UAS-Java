@@ -7,6 +7,7 @@ import Class.*;
 import Loader.*;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
     
 /**
  *
@@ -41,14 +42,19 @@ public class ListMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtId = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         imageLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         descLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         btnAddToCart = new javax.swing.JButton();
-        txtId = new javax.swing.JLabel();
-        testId = new javax.swing.JLabel();
-        testisi = new javax.swing.JLabel();
+
+        txtId.setFont(new java.awt.Font("Segoe UI", 0, 3)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(236, 227, 206));
+        jPanel1.setForeground(new java.awt.Color(236, 227, 206));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 115));
 
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu/Brownies.png"))); // NOI18N
 
@@ -65,69 +71,69 @@ public class ListMenu extends javax.swing.JPanel {
             }
         });
 
-        txtId.setText("jLabel3");
-
-        testId.setText("jLabel3");
-
-        testisi.setText("jLabel3");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(imageLabel)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(priceLabel)
+                            .addComponent(nameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(descLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddToCart)))
+                .addGap(61, 61, 61))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(imageLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(nameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descLabel)
+                            .addComponent(btnAddToCart))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceLabel)))
+                .addGap(22, 22, 22))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(imageLabel)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(priceLabel)
-                            .addComponent(nameLabel))
-                        .addContainerGap(441, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(descLabel)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtId)
-                        .addGap(47, 47, 47)
-                        .addComponent(testId)
-                        .addGap(37, 37, 37)
-                        .addComponent(testisi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddToCart)
-                        .addGap(58, 58, 58))))
+                .addGap(45, 45, 45)
+                .addComponent(txtId)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(imageLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(descLabel)
-                            .addComponent(btnAddToCart)
-                            .addComponent(txtId)
-                            .addComponent(testId)
-                            .addComponent(testisi))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(priceLabel)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtId)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
 //         TODO add your handling code here:
         this.cart.addMenu(this.menuList.get(Integer.parseInt(txtId.getText())));
-        testId.setText(txtId.getText());
-        
-        if(!menuList.isEmpty()) {
-            testisi.setText(this.menuList.get(Integer.parseInt(txtId.getText())).getMenuName());
-        }
+        JOptionPane.showMessageDialog(this, "Berhasil Menambah Menu!");
     }//GEN-LAST:event_btnAddToCartActionPerformed
 
 
@@ -135,10 +141,9 @@ public class ListMenu extends javax.swing.JPanel {
     private javax.swing.JButton btnAddToCart;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel imageLabel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
-    private javax.swing.JLabel testId;
-    private javax.swing.JLabel testisi;
     private javax.swing.JLabel txtId;
     // End of variables declaration//GEN-END:variables
 }

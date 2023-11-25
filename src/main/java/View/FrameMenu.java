@@ -50,6 +50,8 @@ public class FrameMenu extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(462, 393));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -68,15 +70,15 @@ public class FrameMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(340, Short.MAX_VALUE)
                 .addComponent(ButtonBack)
                 .addGap(23, 23, 23))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonBack)
                 .addGap(15, 15, 15))

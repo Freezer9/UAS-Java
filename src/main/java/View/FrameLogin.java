@@ -222,6 +222,7 @@ public class FrameLogin extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this, "Login gagal!");
         }
+        
     }//GEN-LAST:event_ButtonLoginActionPerformed
 
     public static void main(String args[]) {
