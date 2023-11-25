@@ -130,7 +130,7 @@ public class FrameCart extends javax.swing.JFrame {
             
             price = cart.getMenu(i).getPrice();
             
-            for(j = 0; j < i; j++){
+            for(j = 0; j < model.getRowCount(); j++){
                 String namaMenuExists = (String) model.getValueAt(j, 0);
                 if (nama_menu == namaMenuExists){
                     sameItemCheck = 1;
@@ -143,7 +143,10 @@ public class FrameCart extends javax.swing.JFrame {
             if (sameItemCheck == 1){
                 int oldQuantity = (int) model.getValueAt( j, 1);
                 int newQuantity = oldQuantity + 1;
+                int oldPrice = (int) model.getValueAt(j, 2);
+                int newPrice = oldPrice * newQuantity;
                 model.setValueAt(newQuantity, j, 1);
+                model.setValueAt(newPrice, j, 2);
             }else{
                 model.addRow(new Object[]{nama_menu, quantity, price});
             }
