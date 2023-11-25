@@ -24,18 +24,11 @@ public class FrameProfile extends javax.swing.JFrame {
     }
     
     public void setProfile() {
+        Object s = this.user.getAddress();
         txtUsername.setText(this.user.getUsername());
         txtEmail.setText(this.user.getEmail());
         txtNama.setText(this.user.getNama());
-        txtAlamat.setText(this.user.getAddress());
-    }
-    
-    public void updateProfile() {
-        if(!txtNama.getText().isEmpty() || !txtAlamat.getText().isEmpty()) {
-            btnUpdate.setEnabled(true);
-        } else {
-            btnUpdate.setEnabled(false);
-        }
+        ComboBox.setSelectedItem(s);
     }
     
     @SuppressWarnings("unchecked")
@@ -52,9 +45,9 @@ public class FrameProfile extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        txtAlamat = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         ButtonBack = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -63,16 +56,9 @@ public class FrameProfile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(236, 227, 206));
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(236, 227, 206));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 400));
-
-        txtNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaActionPerformed(evt);
-            }
-        });
 
         txtEmail.setEnabled(false);
 
@@ -101,12 +87,6 @@ public class FrameProfile extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Alamat");
 
-        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlamatActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Username");
 
@@ -116,6 +96,8 @@ public class FrameProfile extends javax.swing.JFrame {
                 ButtonBackActionPerformed(evt);
             }
         });
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Surabaya Tengah", "Surabaya Selatan", "Surabaya Utara", "Surabaya Barat", "Keputih", "Waru", " " }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,15 +120,15 @@ public class FrameProfile extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(285, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnUpdate)
                 .addGap(27, 27, 27)
                 .addComponent(ButtonBack)
-                .addGap(137, 137, 137))
+                .addGap(193, 193, 193))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,20 +142,18 @@ public class FrameProfile extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 77, Short.MAX_VALUE))
-                    .addComponent(txtAlamat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(62, 62, 62)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(ButtonBack))
-                .addGap(35, 35, 35))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
@@ -235,61 +215,26 @@ public class FrameProfile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
-        updateProfile();
-    }//GEN-LAST:event_txtAlamatActionPerformed
-
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        this.user.setNama(txtNama.getText());
-        this.user.setAlamat(txtAlamat.getText());
-        
-        JOptionPane.showMessageDialog(this, "Update Profil Berhasil!");
+        if(this.txtNama.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Text Nama Kosong!");
+        } else if (ComboBox.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Alamat Kosong");
+        } else {
+            this.user.setNama(txtNama.getText());
+            this.user.setAlamat(ComboBox.getSelectedItem().toString());
+
+            JOptionPane.showMessageDialog(this, "Update Profil Berhasil!");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
-        updateProfile();
-
-    }//GEN-LAST:event_txtNamaActionPerformed
 
     private void ButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBackActionPerformed
         this.dispose();
     }//GEN-LAST:event_ButtonBackActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameProfile().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBack;
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -301,7 +246,6 @@ public class FrameProfile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtAlamat;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtUsername;

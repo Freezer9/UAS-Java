@@ -6,9 +6,7 @@ public class Cart {
     private ArrayList<Menu> cartList;
     
     public Cart() {
-        this.cartList = new ArrayList<>();
-        
-        this.cartList.add(new Menu("Kontol 1", 12000, "Description 1", "12"));
+        this.cartList = new ArrayList<>();        
     }
     
     public Menu getMenu(int id) {
@@ -21,5 +19,9 @@ public class Cart {
     
     public void addMenu(Menu menu) {
         this.cartList.add(menu);
+    }
+    
+    public boolean checkCart() {
+        return this.cartList.isEmpty();
     }
 }

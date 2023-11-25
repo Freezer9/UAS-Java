@@ -16,7 +16,7 @@ public class FoodCommerce {
         this.userList.add(new User(username, password, email));
     }
     
-    public int getJumlahUser() {
+    public int getJumlahUser() {    
         return this.userList.size();
     }
     
