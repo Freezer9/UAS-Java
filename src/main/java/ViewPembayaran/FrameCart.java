@@ -114,6 +114,7 @@ public class FrameCart extends javax.swing.JFrame {
         String nama_menu;
         int quantity;
         int price;
+        int sameItemCheck;
         
         int jumlahKaryawan;
         DefaultTableModel model = (DefaultTableModel) TableCart.getModel();
@@ -124,8 +125,28 @@ public class FrameCart extends javax.swing.JFrame {
         for (int i = 0; i < jumlahKaryawan; i++) {
             nama_menu = cart.getMenu(i).getMenuName();
             quantity = 1;
+            sameItemCheck = 0;
+            int j;
+            
             price = cart.getMenu(i).getPrice();
-            model.addRow(new Object[]{nama_menu, quantity, price});
+            
+            for(j = 0; j < i; j++){
+                String namaMenuExists = (String) model.getValueAt(j, 0);
+                if (nama_menu == namaMenuExists){
+                    sameItemCheck = 1;
+                    if(sameItemCheck == 1){
+                        break;
+                    }
+                }
+            }
+            
+            if (sameItemCheck == 1){
+                int oldQuantity = (int) model.getValueAt( j, 1);
+                int newQuantity = oldQuantity + 1;
+                model.setValueAt(newQuantity, j, 1);
+            }else{
+                model.addRow(new Object[]{nama_menu, quantity, price});
+            }
         }
     }
     
