@@ -285,9 +285,9 @@ public class FrameInvoice extends javax.swing.JFrame {
         String nama_menu;
         int quantity;
         int harga_satuan;
-        int total;
+        int sameItemCheck;
+
         int jumlahCart;
-        
         DefaultTableModel model = (DefaultTableModel) tblPesanan.getModel();
 
         model.setRowCount(0);
@@ -295,11 +295,36 @@ public class FrameInvoice extends javax.swing.JFrame {
 
         for (int i = 0; i < jumlahCart; i++) {
             nama_menu = cart.getMenu(i).getMenuName();
-            quantity = 1;           
             harga_satuan = cart.getMenu(i).getPrice();
-            total = harga_satuan * quantity;
-            this.total_harga += total;
-            model.addRow(new Object[]{nama_menu, quantity, harga_satuan, total});
+            quantity = 1;           
+            sameItemCheck = 0;
+            int j;
+            
+            for(j = 0; j < model.getRowCount(); j++){
+                String namaMenuExists = (String) model.getValueAt(j, 0);
+                if (nama_menu == namaMenuExists){
+                    sameItemCheck = 1;
+                    if(sameItemCheck == 1){
+                        break;
+                    }
+                }
+            }
+            
+            if (sameItemCheck == 1){
+                int oldQuantity = (int) model.getValueAt( j, 1);
+                int newQuantity = oldQuantity + 1;
+                int newPrice = harga_satuan * newQuantity;
+                
+                model.setValueAt(newQuantity, j, 1);
+                model.setValueAt(harga_satuan, j, 2);
+                model.setValueAt(newPrice, j, 3);
+                
+                this.total_harga += harga_satuan;
+            }else{
+                model.addRow(new Object[]{nama_menu, quantity, harga_satuan, harga_satuan});   
+                
+                this.total_harga += harga_satuan;
+            }
         }
     }
     
