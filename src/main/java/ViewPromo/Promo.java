@@ -4,9 +4,10 @@
  */
 package ViewPromo;
 
+import Model.Cart;
+import Model.Menu;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import Class.*;
 import javax.swing.JOptionPane;
 
 public class Promo extends javax.swing.JFrame {

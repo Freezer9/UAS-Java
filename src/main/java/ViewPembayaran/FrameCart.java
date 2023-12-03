@@ -1,20 +1,13 @@
 package ViewPembayaran;
 
-import Class.*;
+import Controller.RootController;
+import Interface.Tabel;
 import javax.swing.table.DefaultTableModel;
 
-public class FrameCart extends javax.swing.JFrame {
-    private Cart cart;
-    private User user;
+public class FrameCart extends RootController implements Tabel {
     
-    public FrameCart(Cart cart) {
+    public FrameCart() {
         initComponents();
-        this.cart = cart;
-        showTabelCart();
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
     }
     
     @SuppressWarnings("unchecked")
@@ -122,12 +115,12 @@ public class FrameCart extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FrameMetodePembelian metodeBuy = new FrameMetodePembelian();
-        metodeBuy.setCart(this.cart);
-        metodeBuy.setUser(this.user);
-        metodeBuy.setVisible(true);
+        metodeBuy.openFrame(metodeBuy, this.getUser(), this.cart);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void showTabelCart() {
+    @Override
+    public void showTabel() {
         String nama_menu;
         int quantity;
         int price;

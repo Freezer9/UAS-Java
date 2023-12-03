@@ -1,34 +1,29 @@
 package View;
 
-import Class.*;
+import Model.User;
+import Controller.RootController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
-public class FrameLogin extends javax.swing.JFrame {
-    private FoodCommerce toko;
-    
+public class FrameLogin extends RootController {
+
     public FrameLogin() {
-        this.toko = new FoodCommerce();
         initComponents();
     }
 
-    public void setToko(FoodCommerce toko) {
-        this.toko = toko;
-    }
-    
-    private User cariUser() {
+    protected User cariUser() {
         String email;
         String password;
         
         email = InputEmail.getText();
         password = String.valueOf(InputPassword.getPassword());
         
-        for (int i = 0; i < this.toko.getJumlahUser(); i++) {
-            if(email.equals(this.toko.getUser(i).getEmail()) && password.equals(this.toko.getUser(i).getPassword())) {
+        for (int i = 0; i < super.toko.getJumlahUser(); i++) {
+            if(email.equals(super.toko.getUser(i).getEmail()) && password.equals(super.toko.getUser(i).getPassword())) {
                 JOptionPane.showMessageDialog(this, "Login berhasil!");
-                toko.getUser(i).setId(i);
-                return toko.getUser(i);
+                super.toko.getUser(i).setId(i);
+                return super.toko.getUser(i);
             }
         }
         
@@ -193,31 +188,26 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FrameRegister SignUpFrame = new FrameRegister();
-        SignUpFrame.setToko(this.toko);
-        SignUpFrame.setVisible(true);
+        super.openFrame(SignUpFrame, this.getUser(), this.cart);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoginActionPerformed
-        // TODO add your handling code here:
-        User user;
-        Home home;
-        
-        home = new Home();
-        user = cariUser();
+        Home home = new Home();
+        User user1 = cariUser();
             
-        if (user != null){
+        if (user1 != null){
            home.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
                 setVisible(true);
                 }
-            });  
+            });
            
-            home.setUser(user, toko);
-            home.setCart(new Cart());
-            home.setVisible(true);
-            this.setVisible(false);
+           home.setToko(this.toko);
+           home.openFrame(home, user1, this.cart);
+           home.setProfileName();
+           this.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(this, "Login gagal!");

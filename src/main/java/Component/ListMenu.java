@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Component;
-import Class.*;
+import Model.Cart;
+import Model.Menu;
 import Loader.*;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;

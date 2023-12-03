@@ -3,28 +3,20 @@ package View;
 import Component.ListMenu;
 import Loader.*;
 import javax.swing.*;
-import Class.*;
+import Controller.RootController;
 
-public class FrameMenu extends javax.swing.JFrame {
-    private Cart cart;
-    private Home home;
+public class FrameMenu extends RootController {
     private DataLoader dataLoader = new DataLoader();
     private int menuAmount = dataLoader.loadMenuItems().size();
     private ListMenu[] listMenu = new ListMenu[menuAmount];
     
-    public FrameMenu(Cart cart) {
-        this.cart = cart;
+    public FrameMenu() {
         initComponents();
         jScrollPane2.setVisible(true);
         jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
-        showMenu();
     }
     
-    public void setHome(Home home) {
-        this.home = home;
-    }
-    
-    private void showMenu(){
+    protected void showMenu(){
         for(int i = 0; i < menuAmount; i++){
             listMenu[i] = new ListMenu(this.cart);
             listMenu[i].setMenuDisplay(i);
