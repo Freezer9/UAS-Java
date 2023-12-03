@@ -24,4 +24,8 @@ public class Cart {
     public boolean checkCart() {
         return this.cartList.isEmpty();
     }
+    
+    public void clearCart(){
+        cartList.clear();
+    }
 }

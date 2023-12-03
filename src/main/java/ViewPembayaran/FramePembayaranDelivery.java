@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 import View.*;
 
 import Controller.RootController;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class FramePembayaranDelivery extends RootController {
     
@@ -84,6 +86,7 @@ public class FramePembayaranDelivery extends RootController {
         txtOngkos = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         btnBayar = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -293,6 +296,13 @@ public class FramePembayaranDelivery extends RootController {
             }
         });
 
+        jButton11.setText("BACK");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -311,6 +321,8 @@ public class FramePembayaranDelivery extends RootController {
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addComponent(btnBayar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton11)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -330,7 +342,9 @@ public class FramePembayaranDelivery extends RootController {
                         .addGap(31, 31, 31)
                         .addComponent(txtOngkos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
-                .addComponent(btnBayar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBayar)
+                    .addComponent(jButton11))
                 .addGap(31, 31, 31))
         );
 
@@ -346,13 +360,28 @@ public class FramePembayaranDelivery extends RootController {
             FrameInvoice invoice = new FrameInvoice();
             invoice.openFrame(invoice, this.getUser(), this.cart);
             invoice.setOngkir(Integer.parseInt(txtOngkos.getText()));
+            
+            this.setVisible(false);
+            
+            invoice.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                dispose();
+                }
+            });
         }
     }//GEN-LAST:event_btnBayarActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBayar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

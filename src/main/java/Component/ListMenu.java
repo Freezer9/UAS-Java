@@ -57,7 +57,7 @@ public class ListMenu extends javax.swing.JPanel {
         jPanel1.setForeground(new java.awt.Color(236, 227, 206));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 115));
 
-        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu/Brownies.png"))); // NOI18N
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/menu/Brownies.png"))); // NOI18N
 
         nameLabel.setText("jLabel2");
 

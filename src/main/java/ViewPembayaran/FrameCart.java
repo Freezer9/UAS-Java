@@ -2,13 +2,19 @@ package ViewPembayaran;
 
 import Controller.RootController;
 import Interface.Tabel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrameCart extends RootController implements Tabel {
     
     public FrameCart() {
         initComponents();
+        model = (DefaultTableModel) TableCart.getModel();
     }
+    
+    DefaultTableModel model;
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,9 +120,26 @@ public class FrameCart extends RootController implements Tabel {
     }//GEN-LAST:event_ButtonKeluarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FrameMetodePembelian metodeBuy = new FrameMetodePembelian();
-        metodeBuy.openFrame(metodeBuy, this.getUser(), this.cart);
-        this.setVisible(false);
+        if(model.getRowCount() != 0){
+            FrameMetodePembelian metodeBuy = new FrameMetodePembelian();
+            metodeBuy.openFrame(metodeBuy, this.getUser(), this.cart);
+            this.setVisible(false);
+
+                metodeBuy.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    setVisible(true);
+                    refreshTabel();
+                    }
+
+                public void refreshTabel(){
+                    showTabel();
+                }
+            });
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Keranjang Kosong! Pesan dulu!");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     @Override
@@ -127,7 +150,7 @@ public class FrameCart extends RootController implements Tabel {
         int sameItemCheck;
         
         int jumlahCart;
-        DefaultTableModel model = (DefaultTableModel) TableCart.getModel();
+        
 
         model.setRowCount(0);
         jumlahCart = cart.getSize();

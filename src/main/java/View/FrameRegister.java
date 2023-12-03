@@ -94,7 +94,7 @@ public class FrameRegister extends RootController {
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 0));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
