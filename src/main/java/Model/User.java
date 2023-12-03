@@ -1,6 +1,4 @@
-package Class;
-
-import ViewPembayaran.FrameCart;
+package Model;
 
 public class User{
     private int id;

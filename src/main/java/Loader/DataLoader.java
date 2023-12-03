@@ -1,6 +1,6 @@
 package Loader;
 
-import Class.*;
+import Model.Menu;
 import java.util.ArrayList;
 
 public class DataLoader {

@@ -1,21 +1,11 @@
 package ViewPembayaran;
-import Class.*;
+import Controller.RootController;
 import View.*;
 
-public class FrameMetodePembelian extends javax.swing.JFrame {
-    private Cart cart;
-    private User user;
+public class FrameMetodePembelian extends RootController {
     
     public FrameMetodePembelian() {
         initComponents();
-    }
-    
-    protected void setCart(Cart cart) {
-        this.cart = cart;
-    }
-    
-    protected void setUser(User user) {
-        this.user = user;
     }
     
     @SuppressWarnings("unchecked")
@@ -30,7 +20,6 @@ public class FrameMetodePembelian extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(432, 500));
 
         jPanel1.setBackground(new java.awt.Color(115, 144, 114));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 100));
@@ -111,7 +100,7 @@ public class FrameMetodePembelian extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(jLabel3)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,50 +108,16 @@ public class FrameMetodePembelian extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FramePembayaranDelivery bayarDeliv = new FramePembayaranDelivery(this.user);
-        bayarDeliv.setCart(this.cart);
-        bayarDeliv.setVisible(true);
+        FramePembayaranDelivery bayarDeliv = new FramePembayaranDelivery();
+        bayarDeliv.openFrame(bayarDeliv, this.getUser(), this.cart);
+        bayarDeliv.setText();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FrameInvoice invoice = new FrameInvoice(this.cart, this.user, 0);
-        invoice.setVisible(true);
+        FrameInvoice invoice = new FrameInvoice();
+        invoice.openFrame(invoice, this.getUser(), this.cart);
+        invoice.setOngkir(0);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameMetodePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameMetodePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameMetodePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameMetodePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameMetodePembelian().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -1,33 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-import Class.User;
+import Controller.RootController;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author yutik
- */
-public class FrameProfile extends javax.swing.JFrame {
-    private User user;
+public class FrameProfile extends RootController {
     
     public FrameProfile() {
         initComponents();
     }
-
-    public void setUser(User user) {
-        this.user = user;
-        this.setProfile();
-    }
     
     public void setProfile() {
-        Object s = this.user.getAddress();
-        txtUsername.setText(this.user.getUsername());
-        txtEmail.setText(this.user.getEmail());
-        txtNama.setText(this.user.getNama());
+        Object s = this.getUser().getAddress();
+        txtUsername.setText(this.getUser().getUsername());
+        txtEmail.setText(this.getUser().getEmail());
+        txtNama.setText(this.getUser().getNama());
         ComboBox.setSelectedItem(s);
     }
     
@@ -221,8 +207,8 @@ public class FrameProfile extends javax.swing.JFrame {
         } else if (ComboBox.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Alamat Kosong");
         } else {
-            this.user.setNama(txtNama.getText());
-            this.user.setAlamat(ComboBox.getSelectedItem().toString());
+            this.getUser().setNama(txtNama.getText());
+            this.getUser().setAlamat(ComboBox.getSelectedItem().toString());
 
             JOptionPane.showMessageDialog(this, "Update Profil Berhasil!");
         }

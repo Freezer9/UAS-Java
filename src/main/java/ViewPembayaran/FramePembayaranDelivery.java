@@ -1,24 +1,18 @@
 package ViewPembayaran;
-import Class.*;
+import Controller.RootController;
 import javax.swing.JOptionPane;
 import View.*;
 
-public class FramePembayaranDelivery extends javax.swing.JFrame{
-    private User user;
-    private Cart cart;
+import Controller.RootController;
+
+public class FramePembayaranDelivery extends RootController {
     
-    public FramePembayaranDelivery(User user) {
+    public FramePembayaranDelivery() {
         initComponents();
-        this.user = user;
-        setText();
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-    
     public void setText() {
-        txtAlamat.setText(this.user.getAddress());
+        txtAlamat.setText(this.getUser().getAddress());
         
         if(checkAddress("Keputih")) {
             txtOngkos.setText("5000");
@@ -38,8 +32,9 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
     }
     
     public boolean checkAddress(String address) {
-        return this.user.getAddress().contains(address);
+        return this.getUser().getAddress().contains(address);
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -348,8 +343,9 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
         if(checkConditionAddress()) {
             JOptionPane.showMessageDialog(this, "Alamat harus mengandung Surabaya");        
         } else {
-            FrameInvoice invoice = new FrameInvoice(this.cart, this.user, Integer.parseInt(txtOngkos.getText()));  
-            invoice.setVisible(true);
+            FrameInvoice invoice = new FrameInvoice();
+            invoice.openFrame(invoice, this.getUser(), this.cart);
+            invoice.setOngkir(Integer.parseInt(txtOngkos.getText()));
         }
     }//GEN-LAST:event_btnBayarActionPerformed
 

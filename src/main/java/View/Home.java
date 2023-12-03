@@ -1,31 +1,22 @@
 package View;
 
-import Class.*;
 import ViewPromo.*;
 import ViewPembayaran.*;
 import javax.swing.JOptionPane;
+import Controller.RootController;
 
-public class Home extends javax.swing.JFrame {
-    private FoodCommerce toko;
-    private Cart cart;
-    private User user;
-    
+public class Home extends RootController {
+
     public Home() {
         initComponents();
     }
     
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-
-    public void setUser(User user, FoodCommerce toko) {
-        this.toko = toko;
-        this.user = user;
-        LabelName.setText("Halo, " + this.user.getUsername());
+    public void setProfileName() {
+        LabelName.setText("Halo, " + this.getUser().getUsername());
     }
     
     public boolean checkProfile() {
-        return this.user.getNama() == null && this.user.getAddress() == null;
+        return this.getUser().getNama()== null && this.getUser().getAddress() == null;
     }
     
     @SuppressWarnings("unchecked")
@@ -181,16 +172,17 @@ public class Home extends javax.swing.JFrame {
 
     private void ButtonProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfileActionPerformed
         FrameProfile profileFrame = new FrameProfile();
-        profileFrame.setVisible(true);
-        profileFrame.setUser(user);
+        profileFrame.openFrame(profileFrame, this.getUser(), this.cart);
+        profileFrame.setProfile();
     }//GEN-LAST:event_ButtonProfileActionPerformed
 
     private void ButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuActionPerformed
         if(checkProfile()) {
             JOptionPane.showMessageDialog(this, "Setting Profile dulu!");
         } else {
-            FrameMenu menuFrame = new FrameMenu(this.cart);
-            menuFrame.setHome(this);
+            FrameMenu menuFrame = new FrameMenu();
+            menuFrame.setCart(this.cart);
+            menuFrame.showMenu();
             menuFrame.setVisible(true);
         }
         
@@ -201,8 +193,9 @@ public class Home extends javax.swing.JFrame {
         if(this.cart.checkCart()) {
             JOptionPane.showMessageDialog(this, "Keranjang Kosong! Pesan dulu!");
         } else {
-            FrameCart cartFrame = new FrameCart(this.cart);
-            cartFrame.setUser(this.user);
+            FrameCart cartFrame = new FrameCart();
+            cartFrame.openFrame(cartFrame, this.getUser(), this.cart);
+            cartFrame.showTabel();
             cartFrame.setVisible(true);
         }
         

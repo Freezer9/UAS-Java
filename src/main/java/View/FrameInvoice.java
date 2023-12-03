@@ -3,41 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import Class.*;
+import Controller.RootController;
+import Interface.Tabel;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class FrameInvoice extends javax.swing.JFrame {
-    private Cart cart;
-    private User user;
+public class FrameInvoice extends RootController implements Tabel {
     private int total_harga;
     private int ongkir;
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date date = new Date();
 
-    public FrameInvoice(Cart cart, User user, int ongkir) {
-        this.cart = cart;
-        this.user = user;
-        this.ongkir = ongkir;
+    public FrameInvoice() {
         initComponents();
-        showTabelInvoice();
+    }
+    
+    public void setOngkir(int ongkir) {
+        this.ongkir = ongkir;
+        showTabel();
         setInvoice();
     }
-    
-    private void setInvoice() {
-        txtIDPesanan.setText("ID-001");
-        txtNama.setText(this.user.getNama());
-        txtTanggal.setText(this.dateFormat.format(date));   
-        
-        if(this.ongkir != 0) {
-            this.total_harga += this.ongkir;
-        }
-        
-        txtOngkir.setText(Integer.toString(this.ongkir));
-        txtTotalHarga.setText(Integer.toString(this.total_harga));
-    }
-    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -274,14 +261,28 @@ public class FrameInvoice extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void setInvoice() {
+        txtIDPesanan.setText("ID-001");
+        txtNama.setText(this.getUser().getNama());
+        txtTanggal.setText(this.dateFormat.format(date));   
+        
+        if(this.ongkir != 0) {
+            this.total_harga += this.ongkir;
+        }
+        
+        txtOngkir.setText(Integer.toString(this.ongkir));
+        txtTotalHarga.setText(Integer.toString(this.total_harga));
+    }
     
-    private void showTabelInvoice() {
+    @Override
+    public void showTabel() {
         String nama_menu;
         int quantity;
         int harga_satuan;
