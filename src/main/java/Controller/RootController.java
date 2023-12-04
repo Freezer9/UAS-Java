@@ -4,6 +4,8 @@ import Loader.DataLoader;
 import Model.Cart;
 import Model.FoodCommerce;
 import Model.User;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 public class RootController extends JFrame{
@@ -42,7 +44,21 @@ public class RootController extends JFrame{
         frame.setVisible(true);
     }
     
-     protected void closeFrame() {
+    protected void closeFrame() {
         this.setVisible(false);
     }
+     
+    protected void windowListenerActivate(RootController frame, String method) {
+        frame.addWindowListener(new WindowAdapter() {
+            
+        @Override
+        public void windowClosed(WindowEvent e) {
+            if(method.contains("dispose")) {
+                dispose();
+            } else {
+                setVisible(true);
+            }
+            }
+        });
+     }
 }

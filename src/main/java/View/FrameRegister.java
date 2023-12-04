@@ -4,7 +4,6 @@ import Controller.RootController;
 import javax.swing.JOptionPane;
 
 public class FrameRegister extends RootController {
-
     public FrameRegister() {
         initComponents();
     }

@@ -1,11 +1,8 @@
 package ViewPembayaran;
 import Controller.RootController;
 import View.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class FrameMetodePembelian extends RootController {
-    
     public FrameMetodePembelian() {
         initComponents();
     }
@@ -130,13 +127,8 @@ public class FrameMetodePembelian extends RootController {
         bayarDeliv.openFrame(bayarDeliv, this.getUser(), this.getCart());
         bayarDeliv.setText();
         this.setVisible(false);
-            
-            bayarDeliv.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                dispose();
-                }
-            });
+        
+        super.windowListenerActivate(bayarDeliv, "dispose");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -145,13 +137,8 @@ public class FrameMetodePembelian extends RootController {
         invoice.setOngkir(0);
         
         this.setVisible(false);
-            
-            invoice.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                dispose();
-                }
-            });
+        
+        super.windowListenerActivate(invoice, "dispose");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

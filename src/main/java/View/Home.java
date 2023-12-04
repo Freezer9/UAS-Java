@@ -4,11 +4,8 @@ import ViewPromo.*;
 import ViewPembayaran.*;
 import javax.swing.JOptionPane;
 import Controller.RootController;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-public class Home extends RootController {
-
+public class Home extends RootController {  
     public Home() {
         initComponents();
     }
@@ -199,12 +196,7 @@ public class Home extends RootController {
             cartFrame.showTabel();
             super.closeFrame();
             
-            cartFrame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                setVisible(true);
-                }
-            });
+            super.windowListenerActivate(cartFrame, "visible");
         }
         
     }//GEN-LAST:event_ButtonCartActionPerformed

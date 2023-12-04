@@ -194,20 +194,15 @@ public class FrameLogin extends RootController {
 
     private void ButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoginActionPerformed
         Home home = new Home();
-        User user1 = cariUser();
+        User user = cariUser();
             
-        if (user1 != null){
-           home.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                setVisible(true);
-                }
-            });
-           
-           home.setToko(this.toko);
-           home.openFrame(home, user1, this.getCart());
-           home.setProfileName();
-           this.setVisible(false);
+        if (user != null){
+            super.windowListenerActivate(home, "visible");
+            home.setToko(this.toko);
+            home.openFrame(home, user, this.getCart());
+            home.setProfileName();
+            
+            this.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(this, "Login gagal!");
