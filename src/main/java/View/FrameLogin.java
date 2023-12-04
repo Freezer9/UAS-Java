@@ -67,23 +67,23 @@ public class FrameLogin extends RootController {
 
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel12)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGap(65, 65, 65))
         );
 
         jLabel3.setBackground(new java.awt.Color(58, 77, 57));
@@ -135,7 +135,7 @@ public class FrameLogin extends RootController {
                         .addComponent(jLabel3)
                         .addGap(143, 143, 143))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -188,7 +188,7 @@ public class FrameLogin extends RootController {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FrameRegister SignUpFrame = new FrameRegister();
-        super.openFrame(SignUpFrame, this.getUser(), this.cart);
+        SignUpFrame.openFrame(SignUpFrame, this.getUser(), this.getCart());
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -205,7 +205,7 @@ public class FrameLogin extends RootController {
             });
            
            home.setToko(this.toko);
-           home.openFrame(home, user1, this.cart);
+           home.openFrame(home, user1, this.getCart());
            home.setProfileName();
            this.setVisible(false);
         }

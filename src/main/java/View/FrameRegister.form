@@ -300,7 +300,7 @@
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Gambar/Green Retro Midcentury Geometric Sticker Logo.png"/>
+                  <Image iconType="3" name="/Resources/gambar/Green Retro Midcentury Geometric Sticker Logo.png"/>
                 </Property>
               </Properties>
             </Component>

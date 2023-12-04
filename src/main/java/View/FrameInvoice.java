@@ -43,7 +43,6 @@ public class FrameInvoice extends RootController implements Tabel {
         jButton1 = new javax.swing.JButton();
         lblOngkir = new javax.swing.JLabel();
         txtOngkir = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtInvoice = new javax.swing.JLabel();
@@ -101,19 +100,17 @@ public class FrameInvoice extends RootController implements Tabel {
         jButton1.setBackground(new java.awt.Color(115, 144, 114));
         jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         lblOngkir.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
         lblOngkir.setText("Ongkir");
 
         txtOngkir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         txtOngkir.setText("<not editable>");
-
-        jButton2.setText("BACK");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,9 +146,7 @@ public class FrameInvoice extends RootController implements Tabel {
                                         .addComponent(txtTotalHarga)))
                                 .addGap(58, 58, 58))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton2)
-                        .addGap(533, 533, 533)
+                        .addGap(648, 648, 648)
                         .addComponent(jButton1)))
                 .addGap(71, 71, 71))
         );
@@ -181,15 +176,13 @@ public class FrameInvoice extends RootController implements Tabel {
                         .addComponent(jLabel5)
                         .addComponent(txtTotalHarga)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton1)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/Green Retro Midcentury Geometric Sticker Logo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         txtInvoice.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
@@ -264,9 +257,11 @@ public class FrameInvoice extends RootController implements Tabel {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.getCart().clearCart();
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void setInvoice() {
         txtIDPesanan.setText("ID-001");
@@ -292,11 +287,11 @@ public class FrameInvoice extends RootController implements Tabel {
         DefaultTableModel model = (DefaultTableModel) tblPesanan.getModel();
 
         model.setRowCount(0);
-        jumlahCart = cart.getSize();
+        jumlahCart = this.getCart().getSize();
 
         for (int i = 0; i < jumlahCart; i++) {
-            nama_menu = cart.getMenu(i).getMenuName();
-            harga_satuan = cart.getMenu(i).getPrice();
+            nama_menu = this.getCart().getMenu(i).getMenuName();
+            harga_satuan = this.getCart().getMenu(i).getPrice();
             quantity = 1;           
             sameItemCheck = 0;
             int j;
@@ -331,7 +326,6 @@ public class FrameInvoice extends RootController implements Tabel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

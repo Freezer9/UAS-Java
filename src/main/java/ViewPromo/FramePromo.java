@@ -4,21 +4,18 @@
  */
 package ViewPromo;
 
+import Controller.RootController;
 import Model.Cart;
 import Model.Menu;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-public class Promo extends javax.swing.JFrame {
+public class FramePromo extends RootController {
     private Cart cart;
     
-    public Promo() {
+    public FramePromo() {
         initComponents();
-    }
-    
-    public void setCart(Cart cart) {
-        this.cart = cart;
     }
     
     public void setNamaPromo(String nama) {
@@ -32,17 +29,17 @@ public class Promo extends javax.swing.JFrame {
     
     public void setFoto(String url) {
         ImageIcon imageIcon = new ImageIcon(getClass().getResource(url));
-    Image image = imageIcon.getImage();
+        Image image = imageIcon.getImage();
 
-    // Ubah ukuran gambar jika diperlukan
-    int width = 100;
-    int height = 100;
-    Image scaledImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        // Ubah ukuran gambar jika diperlukan
+        int width = 100;
+        int height = 100;
+        Image scaledImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 
-    // Tetapkan ikon yang telah diubah ukurannya ke label
-    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-    LabelFoto.setIcon(scaledIcon);
-    LabelFoto.setText(""); // Mungkin ini tidak perlu, tergantung pada kebutuhan Anda
+        // Tetapkan ikon yang telah diubah ukurannya ke label
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        LabelFoto.setIcon(scaledIcon);
+        LabelFoto.setText(""); // Mungkin ini tidak perlu, tergantung pada kebutuhan Anda
     }
    
     @SuppressWarnings("unchecked")
@@ -208,7 +205,7 @@ public class Promo extends javax.swing.JFrame {
         int harga = Integer.parseInt(LabelHarga.getText());
         String namaPromo = cmbHalaman.getSelectedItem().toString();
           
-        this.cart.addMenu(new Menu(namaMenu, harga, namaPromo, LabelFoto.getText()));
+        this.getCart().addMenu(new Menu(namaMenu, harga, namaPromo, LabelFoto.getText()));
         JOptionPane.showMessageDialog(this, "Berhasil Menambah Menu!");
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -4,6 +4,8 @@ import ViewPromo.*;
 import ViewPembayaran.*;
 import javax.swing.JOptionPane;
 import Controller.RootController;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Home extends RootController {
 
@@ -44,14 +46,14 @@ public class Home extends RootController {
         LabelName.setForeground(new java.awt.Color(255, 255, 255));
         LabelName.setText("Halo,");
 
-        ButtonProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/profile (1).png"))); // NOI18N
+        ButtonProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/profile (1).png"))); // NOI18N
         ButtonProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonProfileActionPerformed(evt);
             }
         });
 
-        ButtonCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/cart.png"))); // NOI18N
+        ButtonCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/icon/cart.png"))); // NOI18N
         ButtonCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonCartActionPerformed(evt);
@@ -85,7 +87,7 @@ public class Home extends RootController {
                 .addGap(11, 11, 11))
         );
 
-        ButtonPromo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Promo.png"))); // NOI18N
+        ButtonPromo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/Promo.png"))); // NOI18N
         ButtonPromo.setPreferredSize(new java.awt.Dimension(120, 120));
         ButtonPromo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +95,7 @@ public class Home extends RootController {
             }
         });
 
-        ButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Menu (1).png"))); // NOI18N
+        ButtonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/Menu (1).png"))); // NOI18N
         ButtonMenu.setPreferredSize(new java.awt.Dimension(120, 120));
         ButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +174,7 @@ public class Home extends RootController {
 
     private void ButtonProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfileActionPerformed
         FrameProfile profileFrame = new FrameProfile();
-        profileFrame.openFrame(profileFrame, this.getUser(), this.cart);
+        profileFrame.openFrame(profileFrame, this.getUser(), this.getCart());
         profileFrame.setProfile();
     }//GEN-LAST:event_ButtonProfileActionPerformed
 
@@ -181,22 +183,28 @@ public class Home extends RootController {
             JOptionPane.showMessageDialog(this, "Setting Profile dulu!");
         } else {
             FrameMenu menuFrame = new FrameMenu();
-            menuFrame.setCart(this.cart);
+            menuFrame.openFrame(menuFrame, this.getUser(), this.getCart());
             menuFrame.showMenu();
-            menuFrame.setVisible(true);
         }
         
         
     }//GEN-LAST:event_ButtonMenuActionPerformed
 
     private void ButtonCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCartActionPerformed
-        if(this.cart.checkCart()) {
+        if(this.getCart().checkCart()) {
             JOptionPane.showMessageDialog(this, "Keranjang Kosong! Pesan dulu!");
         } else {
             FrameCart cartFrame = new FrameCart();
-            cartFrame.openFrame(cartFrame, this.getUser(), this.cart);
+            cartFrame.openFrame(cartFrame, this.getUser(), this.getCart());
             cartFrame.showTabel();
-            cartFrame.setVisible(true);
+            super.closeFrame();
+            
+            cartFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                setVisible(true);
+                }
+            });
         }
         
     }//GEN-LAST:event_ButtonCartActionPerformed
@@ -205,9 +213,8 @@ public class Home extends RootController {
         if(checkProfile()) {
             JOptionPane.showMessageDialog(this, "Setting Profile dulu!");
         } else {
-            Promo promo = new Promo();
-            promo.setCart(this.cart);
-            promo.setVisible(true);
+            FramePromo promo = new FramePromo();
+            promo.openFrame(promo, this.getUser(), this.getCart());
         }
     }//GEN-LAST:event_ButtonPromoActionPerformed
 

@@ -145,7 +145,7 @@ public class FrameProfile extends RootController {
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/profile (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/gambar/profile (1).png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Perpetua", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(236, 227, 206));
