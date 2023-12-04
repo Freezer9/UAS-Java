@@ -8,14 +8,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrameCart extends RootController implements Tabel {
+    DefaultTableModel model;
     
     public FrameCart() {
         initComponents();
         model = (DefaultTableModel) TableCart.getModel();
     }
-    
-    DefaultTableModel model;
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,7 +121,7 @@ public class FrameCart extends RootController implements Tabel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(model.getRowCount() != 0){
             FrameMetodePembelian metodeBuy = new FrameMetodePembelian();
-            metodeBuy.openFrame(metodeBuy, this.getUser(), this.cart);
+            metodeBuy.openFrame(metodeBuy, this.getUser(), this.getCart());
             this.setVisible(false);
 
                 metodeBuy.addWindowListener(new WindowAdapter() {
@@ -144,48 +143,48 @@ public class FrameCart extends RootController implements Tabel {
 
     @Override
     public void showTabel() {
-        String nama_menu;
-        int quantity;
-        int price;
-        int sameItemCheck;
-        
-        int jumlahCart;
-        
-
         model.setRowCount(0);
-        jumlahCart = cart.getSize();
+        int jumlahCart = this.getCart().getSize();
 
         for (int i = 0; i < jumlahCart; i++) {
-            nama_menu = cart.getMenu(i).getMenuName();
-            quantity = 1;
-            sameItemCheck = 0;
-            int j;
+            String nama_menu = this.getCart().getMenu(i).getMenuName();
+            int quantity = 1;
+            int price = this.getCart().getMenu(i).getPrice();
+            boolean sameItemCheck = false;
 
-            price = cart.getMenu(i).getPrice();
-
-            for(j = 0; j < model.getRowCount(); j++){
+            for (int j = 0; j < model.getRowCount(); j++) {
                 String namaMenuExists = (String) model.getValueAt(j, 0);
-                if (nama_menu == namaMenuExists){
-                    sameItemCheck = 1;
-                    if(sameItemCheck == 1){
-                        break;
-                    }
+                if (nama_menu.equals(namaMenuExists)) {
+                    sameItemCheck = true;
+                    break;
                 }
             }
 
-            if (sameItemCheck == 1){
-                int oldQuantity = (int) model.getValueAt( j, 1);
+            if (sameItemCheck) {
+                int existingRowIndex = getRowIndexByMenuName(nama_menu);
+                int oldQuantity = (int) model.getValueAt(existingRowIndex, 1);
                 int newQuantity = oldQuantity + 1;
-                int harga_satuan = this.cart.getMenu(i).getPrice();
+                int harga_satuan = this.getCart().getMenu(i).getPrice();
                 int newPrice = harga_satuan * newQuantity;
-                model.setValueAt(newQuantity, j, 1);
-                model.setValueAt(newPrice, j, 2);
-            }else{
+                model.setValueAt(newQuantity, existingRowIndex, 1);
+                model.setValueAt(newPrice, existingRowIndex, 2);
+            } else {
                 model.addRow(new Object[]{nama_menu, quantity, price});
             }
         }
     }
 
+    private int getRowIndexByMenuName(String menuName) {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String namaMenuExists = (String) model.getValueAt(i, 0);
+            if (menuName.equals(namaMenuExists)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonKeluar;
     private javax.swing.JTable TableCart;

@@ -127,7 +127,7 @@ public class FrameMetodePembelian extends RootController {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         FramePembayaranDelivery bayarDeliv = new FramePembayaranDelivery();
-        bayarDeliv.openFrame(bayarDeliv, this.getUser(), this.cart);
+        bayarDeliv.openFrame(bayarDeliv, this.getUser(), this.getCart());
         bayarDeliv.setText();
         this.setVisible(false);
             
@@ -141,7 +141,7 @@ public class FrameMetodePembelian extends RootController {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FrameInvoice invoice = new FrameInvoice();
-        invoice.openFrame(invoice, this.getUser(), this.cart);
+        invoice.openFrame(invoice, this.getUser(), this.getCart());
         invoice.setOngkir(0);
         
         this.setVisible(false);

@@ -174,7 +174,7 @@ public class Home extends RootController {
 
     private void ButtonProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfileActionPerformed
         FrameProfile profileFrame = new FrameProfile();
-        profileFrame.openFrame(profileFrame, this.getUser(), this.cart);
+        profileFrame.openFrame(profileFrame, this.getUser(), this.getCart());
         profileFrame.setProfile();
     }//GEN-LAST:event_ButtonProfileActionPerformed
 
@@ -183,23 +183,21 @@ public class Home extends RootController {
             JOptionPane.showMessageDialog(this, "Setting Profile dulu!");
         } else {
             FrameMenu menuFrame = new FrameMenu();
-            menuFrame.setCart(this.cart);
+            menuFrame.openFrame(menuFrame, this.getUser(), this.getCart());
             menuFrame.showMenu();
-            menuFrame.setVisible(true);
         }
         
         
     }//GEN-LAST:event_ButtonMenuActionPerformed
 
     private void ButtonCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCartActionPerformed
-        if(this.cart.checkCart()) {
+        if(this.getCart().checkCart()) {
             JOptionPane.showMessageDialog(this, "Keranjang Kosong! Pesan dulu!");
         } else {
             FrameCart cartFrame = new FrameCart();
-            cartFrame.openFrame(cartFrame, this.getUser(), this.cart);
+            cartFrame.openFrame(cartFrame, this.getUser(), this.getCart());
             cartFrame.showTabel();
-            cartFrame.setVisible(true);
-            this.setVisible(false);
+            super.closeFrame();
             
             cartFrame.addWindowListener(new WindowAdapter() {
             @Override
@@ -215,9 +213,8 @@ public class Home extends RootController {
         if(checkProfile()) {
             JOptionPane.showMessageDialog(this, "Setting Profile dulu!");
         } else {
-            Promo promo = new Promo();
-            promo.setCart(this.cart);
-            promo.setVisible(true);
+            FramePromo promo = new FramePromo();
+            promo.openFrame(promo, this.getUser(), this.getCart());
         }
     }//GEN-LAST:event_ButtonPromoActionPerformed
 

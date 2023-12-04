@@ -249,19 +249,37 @@ public class FrameRegister extends RootController {
         String username = InputUsername.getText();
         String password = String.valueOf(InputPassword.getPassword());
         String email = InputEmail.getText();
-        
+    
+        passwordCheck(username, password, email);
+    }//GEN-LAST:event_ButtonSignUpActionPerformed
+
+    private void passwordCheck(String username, String password, String email) {
         if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty()) {
             if(email.contains("@gmail.com")) {
-                this.toko.tambahUser(username, password, email);
-                JOptionPane.showMessageDialog(this, "Registrasi Berhasil!");
+                if(!this.toko.checkUser(email)) {
+                    if(isValid(password)) {
+                        this.toko.tambahUser(username, password, email);
+                        JOptionPane.showMessageDialog(this, "Registrasi Berhasil!");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Password harus kombinasi huruf dan angka!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gmail sudah teregistrasi!");
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Gmail salah!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Registrasi Gagal!");        
         }
-    }//GEN-LAST:event_ButtonSignUpActionPerformed
-
+    }
+    
+    public boolean isValid(String s) {
+        String n = ".*[0-9].*";
+        String A = ".*[A-Z].*";
+        String a = ".*[a-z].*";
+        return s.matches(n) && (s.matches(a) || s.matches(A));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonLogin;

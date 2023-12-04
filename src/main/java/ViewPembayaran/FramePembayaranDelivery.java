@@ -1,8 +1,6 @@
 package ViewPembayaran;
-import Controller.RootController;
 import javax.swing.JOptionPane;
 import View.*;
-
 import Controller.RootController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -358,7 +356,7 @@ public class FramePembayaranDelivery extends RootController {
             JOptionPane.showMessageDialog(this, "Alamat harus mengandung Surabaya");        
         } else {
             FrameInvoice invoice = new FrameInvoice();
-            invoice.openFrame(invoice, this.getUser(), this.cart);
+            invoice.openFrame(invoice, this.getUser(), this.getCart());
             invoice.setOngkir(Integer.parseInt(txtOngkos.getText()));
             
             this.setVisible(false);

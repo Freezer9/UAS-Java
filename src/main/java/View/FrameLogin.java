@@ -76,7 +76,7 @@ public class FrameLogin extends RootController {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel12)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +135,7 @@ public class FrameLogin extends RootController {
                         .addComponent(jLabel3)
                         .addGap(143, 143, 143))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -188,7 +188,7 @@ public class FrameLogin extends RootController {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FrameRegister SignUpFrame = new FrameRegister();
-        super.openFrame(SignUpFrame, this.getUser(), this.cart);
+        SignUpFrame.openFrame(SignUpFrame, this.getUser(), this.getCart());
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -205,7 +205,7 @@ public class FrameLogin extends RootController {
             });
            
            home.setToko(this.toko);
-           home.openFrame(home, user1, this.cart);
+           home.openFrame(home, user1, this.getCart());
            home.setProfileName();
            this.setVisible(false);
         }

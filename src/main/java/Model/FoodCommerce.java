@@ -9,7 +9,7 @@ public class FoodCommerce {
     public FoodCommerce() {
         this.userList = new ArrayList<>();
         
-        this.userList.add(new User("hafid", "123", "pid"));
+        this.userList.add(new User("hafid", "123", "pid@gmail.com"));
     }
     
     public void tambahUser(String username, String password, String email) {
@@ -26,6 +26,15 @@ public class FoodCommerce {
     
     public User getUser(int indeks) {
         return this.userList.get(indeks);
+    }
+    
+    public boolean checkUser(String gmail) {
+        for(int i = 0; i < this.getJumlahUser(); i++) {
+            if(this.getUser(i).getEmail().equals(gmail)) {
+                return true;
+            } 
+        }
+        return false;
     }
     
     public void setUser(int indeks, String nama, String password, String email) {

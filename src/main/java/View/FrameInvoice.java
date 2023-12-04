@@ -259,7 +259,7 @@ public class FrameInvoice extends RootController implements Tabel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.cart.clearCart();
+        this.getCart().clearCart();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -287,11 +287,11 @@ public class FrameInvoice extends RootController implements Tabel {
         DefaultTableModel model = (DefaultTableModel) tblPesanan.getModel();
 
         model.setRowCount(0);
-        jumlahCart = cart.getSize();
+        jumlahCart = this.getCart().getSize();
 
         for (int i = 0; i < jumlahCart; i++) {
-            nama_menu = cart.getMenu(i).getMenuName();
-            harga_satuan = cart.getMenu(i).getPrice();
+            nama_menu = this.getCart().getMenu(i).getMenuName();
+            harga_satuan = this.getCart().getMenu(i).getPrice();
             quantity = 1;           
             sameItemCheck = 0;
             int j;

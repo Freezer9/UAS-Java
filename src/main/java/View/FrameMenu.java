@@ -1,14 +1,11 @@
 package View;
 
 import Component.ListMenu;
-import Loader.*;
 import javax.swing.*;
 import Controller.RootController;
 
 public class FrameMenu extends RootController {
-    private DataLoader dataLoader = new DataLoader();
-    private int menuAmount = dataLoader.loadMenuItems().size();
-    private ListMenu[] listMenu = new ListMenu[menuAmount];
+    private ListMenu[] listMenu = new ListMenu[super.getMenuAmount()];
     
     public FrameMenu() {
         initComponents();
@@ -17,8 +14,8 @@ public class FrameMenu extends RootController {
     }
     
     protected void showMenu(){
-        for(int i = 0; i < menuAmount; i++){
-            listMenu[i] = new ListMenu(this.cart);
+        for(int i = 0; i < super.getMenuAmount(); i++){
+            listMenu[i] = new ListMenu(this.getCart());
             listMenu[i].setMenuDisplay(i);
             jPanel1.add(listMenu[i]);
             listMenu[i].setVisible(true);
