@@ -124,19 +124,17 @@ public class FrameCart extends RootController implements Tabel {
             metodeBuy.openFrame(metodeBuy, this.getUser(), this.getCart());
             this.setVisible(false);
 
-                metodeBuy.addWindowListener(new WindowAdapter() {
+            metodeBuy.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosed(WindowEvent e) {
                     setVisible(true);
                     refreshTabel();
-                    }
+                }
 
                 public void refreshTabel(){
                     showTabel();
-                }
-            });
-        }
-        else{
+                }});
+        } else{
             JOptionPane.showMessageDialog(this, "Keranjang Kosong! Pesan dulu!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed

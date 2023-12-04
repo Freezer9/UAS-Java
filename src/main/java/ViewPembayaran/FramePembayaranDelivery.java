@@ -2,8 +2,6 @@ package ViewPembayaran;
 import javax.swing.JOptionPane;
 import View.*;
 import Controller.RootController;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class FramePembayaranDelivery extends RootController {
     
@@ -361,12 +359,7 @@ public class FramePembayaranDelivery extends RootController {
             
             this.setVisible(false);
             
-            invoice.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                dispose();
-                }
-            });
+            super.windowListenerActivate(invoice, "dispose");
         }
     }//GEN-LAST:event_btnBayarActionPerformed
 
