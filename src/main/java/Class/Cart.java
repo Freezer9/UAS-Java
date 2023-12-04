@@ -7,8 +7,7 @@ public class Cart {
     
     public Cart() {
         this.cartList = new ArrayList<>();
-        
-        //this.cartList.add(new Menu("Kontol 1", 12000, "Description 1", "12"));
+       
     }
     
     public Menu getMenu(int id) {

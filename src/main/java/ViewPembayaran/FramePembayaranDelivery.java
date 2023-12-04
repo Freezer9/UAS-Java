@@ -258,6 +258,7 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
         jLabel17.setText("Nama ");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 350));
 
         jPanel1.setBackground(new java.awt.Color(115, 144, 114));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 72));
@@ -273,7 +274,7 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jLabel3)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,11 +288,19 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
         jLabel24.setText("Masukkan Alamat");
 
         txtOngkos.setEnabled(false);
+        txtOngkos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOngkosActionPerformed(evt);
+            }
+        });
 
         jLabel25.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         jLabel25.setText("Ongkos Kirim");
 
-        btnBayar.setText("BAYAR");
+        btnBayar.setBackground(new java.awt.Color(115, 144, 114));
+        btnBayar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        btnBayar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBayar.setText("Bayar");
         btnBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBayarActionPerformed(evt);
@@ -352,6 +361,10 @@ public class FramePembayaranDelivery extends javax.swing.JFrame{
             invoice.setVisible(true);
         }
     }//GEN-LAST:event_btnBayarActionPerformed
+
+    private void txtOngkosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOngkosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOngkosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBayar;

@@ -43,7 +43,10 @@ public class FrameMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ButtonBack.setText("BACK");
+        ButtonBack.setBackground(new java.awt.Color(115, 144, 114));
+        ButtonBack.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        ButtonBack.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonBack.setText("Back");
         ButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonBackActionPerformed(evt);
@@ -78,7 +81,7 @@ public class FrameMenu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonBack)
                 .addGap(15, 15, 15))

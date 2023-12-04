@@ -30,7 +30,7 @@ public class Promo extends javax.swing.JFrame {
     
     
     public void setFoto(String url) {
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource(url));
+    ImageIcon imageIcon = new ImageIcon(getClass().getResource(url));
     Image image = imageIcon.getImage();
 
     // Ubah ukuran gambar jika diperlukan
@@ -59,7 +59,11 @@ public class Promo extends javax.swing.JFrame {
         LabelHarga = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(450, 500));
 
+        btnPilih.setBackground(new java.awt.Color(115, 144, 114));
+        btnPilih.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        btnPilih.setForeground(new java.awt.Color(255, 255, 255));
         btnPilih.setText("Pilih");
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,13 +71,16 @@ public class Promo extends javax.swing.JFrame {
             }
         });
 
-        cmbHalaman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Promo 1", "Promo 2", "Promo 3", "Promo 4", "Promo 5", " " }));
+        cmbHalaman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Promo Hemat", "Promo Kenyang", "Promo Kenyang Banget", "Promo Chill", "Promo Active", " " }));
         cmbHalaman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbHalamanActionPerformed(evt);
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(115, 144, 114));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +88,9 @@ public class Promo extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(115, 144, 114));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Beli");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,14 +99,6 @@ public class Promo extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/Promo.png"))); // NOI18N
-
-        LabelPromo.setText("Menu");
-
-        LabelFoto.setText("Foto");
-
-        lblRp.setText("Rp.");
-
-        LabelHarga.setText("price");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,7 +131,7 @@ public class Promo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnPilih, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +146,7 @@ public class Promo extends javax.swing.JFrame {
                 .addComponent(LabelPromo)
                 .addGap(35, 35, 35)
                 .addComponent(LabelFoto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRp)
                     .addComponent(LabelHarga))
@@ -168,27 +170,27 @@ public class Promo extends javax.swing.JFrame {
          
         if (selectedItem != null && !selectedItem.equals("")) {
             switch (selectedItem) {
-                case "Promo 1" -> {
+                case "Promo Hemat" -> {
                         this.setFoto("/Resources/gambarpromo/Promo2.png");
                         this.setNamaPromo("Croissant & Coffee");
                         this.setHarga("45000");
                 }
-                case "Promo 2" -> {
+                case "Promo Kenyang" -> {
                         this.setFoto("/Resources/gambarpromo/Promo5.png");
                         this.setNamaPromo("2 Donat & Coffee");
                         this.setHarga("75000");
                 }
-                case "Promo 3" -> {
+                case "Promo Kenyang Banget" -> {
                         this.setFoto("/Resources/gambarpromo/Promo3.png");
                         this.setNamaPromo("3 Donat & Coffee");
-                        this.setHarga("R85000");
+                        this.setHarga("85000");
                 }
-                case "Promo 4" -> {
+                case "Promo Chill" -> {
                         this.setFoto("/Resources/gambarpromo/Promo4.png");
                         this.setNamaPromo("1 Donat & Chamomile Tea");
                         this.setHarga("45000");
                 }
-                case "Promo 5" -> {
+                case "Promo Active" -> {
                         this.setFoto("/Resources/gambarpromo/Promo5.png");
                         this.setNamaPromo("1 Donat & Hot Capucino");
                         this.setHarga("55000");

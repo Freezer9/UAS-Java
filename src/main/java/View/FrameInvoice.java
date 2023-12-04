@@ -53,7 +53,6 @@ public class FrameInvoice extends javax.swing.JFrame {
         txtNama = new javax.swing.JLabel();
         txtTanggal = new javax.swing.JLabel();
         txtTotalHarga = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         lblOngkir = new javax.swing.JLabel();
         txtOngkir = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -65,8 +64,10 @@ public class FrameInvoice extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(236, 227, 206));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -111,17 +112,16 @@ public class FrameInvoice extends javax.swing.JFrame {
         txtTotalHarga.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         txtTotalHarga.setText("<not editable>");
 
-        jButton1.setBackground(new java.awt.Color(115, 144, 114));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jButton1.setText("OK");
-
         lblOngkir.setFont(new java.awt.Font("Yu Gothic Medium", 0, 14)); // NOI18N
         lblOngkir.setText("Ongkir");
 
         txtOngkir.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         txtOngkir.setText("<not editable>");
 
-        jButton2.setText("BACK");
+        jButton2.setBackground(new java.awt.Color(115, 144, 114));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -132,46 +132,42 @@ public class FrameInvoice extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(290, Short.MAX_VALUE)
+                .addComponent(lblOngkir)
+                .addGap(18, 18, 18)
+                .addComponent(txtOngkir)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(68, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblOngkir)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtOngkir)
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtIDPesanan))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(txtTanggal))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(txtNama))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(15, 15, 15)
-                                        .addComponent(txtTotalHarga)))
-                                .addGap(58, 58, 58))))
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtIDPesanan))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton2)
-                        .addGap(533, 533, 533)
-                        .addComponent(jButton1)))
-                .addGap(71, 71, 71))
+                        .addComponent(jLabel4)
+                        .addGap(39, 39, 39)
+                        .addComponent(txtTanggal))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(54, 54, 54)
+                        .addComponent(txtNama))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(15, 15, 15)
+                        .addComponent(txtTotalHarga)))
+                .addGap(129, 129, 129))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,10 +190,8 @@ public class FrameInvoice extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addComponent(txtTotalHarga)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(115, 144, 114));
@@ -234,7 +228,7 @@ public class FrameInvoice extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,9 +261,9 @@ public class FrameInvoice extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -285,9 +279,9 @@ public class FrameInvoice extends javax.swing.JFrame {
         String nama_menu;
         int quantity;
         int harga_satuan;
-        int total;
+        int sameItemCheck;
+
         int jumlahCart;
-        
         DefaultTableModel model = (DefaultTableModel) tblPesanan.getModel();
 
         model.setRowCount(0);
@@ -295,16 +289,40 @@ public class FrameInvoice extends javax.swing.JFrame {
 
         for (int i = 0; i < jumlahCart; i++) {
             nama_menu = cart.getMenu(i).getMenuName();
-            quantity = 1;           
             harga_satuan = cart.getMenu(i).getPrice();
-            total = harga_satuan * quantity;
-            this.total_harga += total;
-            model.addRow(new Object[]{nama_menu, quantity, harga_satuan, total});
+            quantity = 1;           
+            sameItemCheck = 0;
+            int j;
+            
+            for(j = 0; j < model.getRowCount(); j++){
+                String namaMenuExists = (String) model.getValueAt(j, 0);
+                if (nama_menu == namaMenuExists){
+                    sameItemCheck = 1;
+                    if(sameItemCheck == 1){
+                        break;
+                    }
+                }
+            }
+            
+            if (sameItemCheck == 1){
+                int oldQuantity = (int) model.getValueAt( j, 1);
+                int newQuantity = oldQuantity + 1;
+                int newPrice = harga_satuan * newQuantity;
+                
+                model.setValueAt(newQuantity, j, 1);
+                model.setValueAt(harga_satuan, j, 2);
+                model.setValueAt(newPrice, j, 3);
+                
+                this.total_harga += harga_satuan;
+            }else{
+                model.addRow(new Object[]{nama_menu, quantity, harga_satuan, harga_satuan});   
+                
+                this.total_harga += harga_satuan;
+            }
         }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

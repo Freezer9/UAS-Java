@@ -108,7 +108,7 @@ public class FrameRegister extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(jLabel12)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +130,7 @@ public class FrameRegister extends javax.swing.JFrame {
         jLabel13.setText("SIGN UP");
 
         ButtonSignUp.setBackground(new java.awt.Color(58, 77, 57));
+        ButtonSignUp.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         ButtonSignUp.setForeground(new java.awt.Color(255, 255, 255));
         ButtonSignUp.setText("Sign Up");
         ButtonSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +142,7 @@ public class FrameRegister extends javax.swing.JFrame {
         jLabel14.setText("I've an account");
 
         ButtonLogin.setBackground(new java.awt.Color(58, 77, 57));
+        ButtonLogin.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         ButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
         ButtonLogin.setText("Login");
         ButtonLogin.addActionListener(new java.awt.event.ActionListener() {

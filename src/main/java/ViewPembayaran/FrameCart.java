@@ -53,6 +53,9 @@ public class FrameCart extends javax.swing.JFrame {
 
         jLabel1.setText("Pembayaran ");
 
+        ButtonKeluar.setBackground(new java.awt.Color(115, 144, 114));
+        ButtonKeluar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        ButtonKeluar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonKeluar.setText("Keluar");
         ButtonKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +63,9 @@ public class FrameCart extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(115, 144, 114));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Bayar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +82,7 @@ public class FrameCart extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonKeluar)
@@ -91,8 +97,8 @@ public class FrameCart extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonKeluar)
                     .addComponent(jButton2))
@@ -103,9 +109,7 @@ public class FrameCart extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,9 +148,9 @@ public class FrameCart extends javax.swing.JFrame {
             quantity = 1;
             sameItemCheck = 0;
             int j;
-            
+
             price = cart.getMenu(i).getPrice();
-            
+
             for(j = 0; j < model.getRowCount(); j++){
                 String namaMenuExists = (String) model.getValueAt(j, 0);
                 if (nama_menu == namaMenuExists){
@@ -156,12 +160,12 @@ public class FrameCart extends javax.swing.JFrame {
                     }
                 }
             }
-            
+
             if (sameItemCheck == 1){
                 int oldQuantity = (int) model.getValueAt( j, 1);
                 int newQuantity = oldQuantity + 1;
-                int oldPrice = (int) model.getValueAt(j, 2);
-                int newPrice = oldPrice * newQuantity;
+                int harga_satuan = this.cart.getMenu(i).getPrice();
+                int newPrice = harga_satuan * newQuantity;
                 model.setValueAt(newQuantity, j, 1);
                 model.setValueAt(newPrice, j, 2);
             }else{

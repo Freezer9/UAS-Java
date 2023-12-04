@@ -114,7 +114,9 @@ public class Home extends javax.swing.JFrame {
 
         jLabel4.setText("Our Menu");
 
-        ButtonExit.setText("Exit");
+        ButtonExit.setBackground(new java.awt.Color(115, 144, 114));
+        ButtonExit.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonExit.setText("Logout");
         ButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonExitActionPerformed(evt);

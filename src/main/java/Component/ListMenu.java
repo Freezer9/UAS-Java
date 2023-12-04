@@ -9,10 +9,7 @@ import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
     
-/**
- *
- * @author raffi1
- */
+
 public class ListMenu extends javax.swing.JPanel {
     private Cart cart;
     private DataLoader dataLoader = new DataLoader();
@@ -64,6 +61,9 @@ public class ListMenu extends javax.swing.JPanel {
 
         priceLabel.setText("jLabel4");
 
+        btnAddToCart.setBackground(new java.awt.Color(115, 144, 114));
+        btnAddToCart.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        btnAddToCart.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToCart.setText("Add to Cart");
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
