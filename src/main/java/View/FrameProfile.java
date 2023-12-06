@@ -61,9 +61,10 @@ public class FrameProfile extends RootController {
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(58, 77, 57));
-        btnUpdate.setForeground(new java.awt.Color(236, 227, 206));
-        btnUpdate.setText("Update");
+        btnUpdate.setBackground(new java.awt.Color(115, 144, 114));
+        btnUpdate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Perbarui");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -76,7 +77,10 @@ public class FrameProfile extends RootController {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Username");
 
-        ButtonBack.setText("BACK");
+        ButtonBack.setBackground(new java.awt.Color(115, 144, 114));
+        ButtonBack.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        ButtonBack.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonBack.setText("Kembali");
         ButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonBackActionPerformed(evt);

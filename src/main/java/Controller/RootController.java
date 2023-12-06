@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public class RootController extends JFrame{
     private DataLoader dataLoader = new DataLoader();
     protected FoodCommerce toko = new FoodCommerce();
-    private Cart cart = new Cart();
+    private Cart cart;
     private User user;
 
     public void setUser(User user) {
@@ -32,6 +32,10 @@ public class RootController extends JFrame{
     
     public void setToko(FoodCommerce toko) {
         this.toko = toko;
+    }
+    
+    public FoodCommerce getToko() {
+        return this.toko;
     }
    
     public int getMenuAmount() {

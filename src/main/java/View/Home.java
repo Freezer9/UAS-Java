@@ -104,7 +104,9 @@ public class Home extends RootController {
 
         jLabel4.setText("Our Menu");
 
-        ButtonExit.setText("Logout");
+        ButtonExit.setBackground(new java.awt.Color(115, 144, 114));
+        ButtonExit.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonExit.setText("Keluar");
         ButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonExitActionPerformed(evt);

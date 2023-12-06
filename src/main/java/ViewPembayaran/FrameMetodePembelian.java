@@ -65,7 +65,10 @@ public class FrameMetodePembelian extends RootController {
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 30)); // NOI18N
         jLabel3.setText("Pick Up");
 
-        jButton3.setText("BACK");
+        jButton3.setBackground(new java.awt.Color(115, 144, 114));
+        jButton3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Kembali");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

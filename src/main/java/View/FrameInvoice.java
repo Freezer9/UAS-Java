@@ -8,6 +8,7 @@ import Interface.Tabel;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class FrameInvoice extends RootController implements Tabel {
     private int total_harga;
@@ -99,7 +100,8 @@ public class FrameInvoice extends RootController implements Tabel {
 
         jButton1.setBackground(new java.awt.Color(115, 144, 114));
         jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jButton1.setText("OK");
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -258,6 +260,7 @@ public class FrameInvoice extends RootController implements Tabel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this, "Pesanan Telah Dibayar!");
         this.getCart().clearCart();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

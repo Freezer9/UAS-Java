@@ -1,12 +1,13 @@
 package Model;
 
 public class User{
-    private int id;
+    private Cart cart = new Cart();
     private String username;
     private String password;
     private String email;
     private String nama;
     private String address;
+    private int id;
     
     public User(String username, String password, String email) {
         this.username = username;
@@ -60,5 +61,13 @@ public class User{
     
     public int getId() {
         return this.id;
+    }
+    
+    public Cart getCart() {
+        return this.cart;
+    }
+    
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

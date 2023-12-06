@@ -9,11 +9,16 @@ public class FoodCommerce {
     public FoodCommerce() {
         this.userList = new ArrayList<>();
         
-        this.userList.add(new User("hafid", "123", "pid@gmail.com"));
+        this.userList.add(new User("hafid", "123", "pid"));
     }
     
     public void tambahUser(String username, String password, String email) {
         this.userList.add(new User(username, password, email));
+    }
+    public void updateUser(int id, String nama, String address) {
+        User u = this.userList.get(id);
+        u.setNama(nama);
+        u.setAlamat(address);
     }
     
     public int getJumlahUser() {    
